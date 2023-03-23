@@ -1,7 +1,5 @@
 package org.businessLogic;
 
-import java.util.*;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -13,6 +11,6 @@ public class Main {
         }
 
          */
-        GUI.renderUI("src/test/csv/SampleData.csv");
+        GUI.renderUI();
     }
 }
