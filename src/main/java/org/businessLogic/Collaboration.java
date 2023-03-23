@@ -8,7 +8,7 @@ public class Collaboration {
     Integer secondEmployeeId;
     long daysTogether;
 
-    public static Map<Integer,Collaboration> getCollaborationsMap(Map<Integer, List<EmployeeIdAndDates>> projectAndEmployees) {
+    public static Map<Integer,Collaboration> getCollaborationsMap(Map<Integer, List<EmpIdAndDates>> projectAndEmployees) {
         Map<Integer,Collaboration> collaborationsMap = new HashMap<>();
 
         /*
@@ -19,11 +19,11 @@ public class Collaboration {
          */
         for ( Integer projectId : projectAndEmployees.keySet()) {
 
-            List<EmployeeIdAndDates> employeesInProject = projectAndEmployees.get(projectId);
-            for ( EmployeeIdAndDates employeeIdAndDates : employeesInProject) {
+            List<EmpIdAndDates> employeesInProject = projectAndEmployees.get(projectId);
+            for ( EmpIdAndDates empIdAndDates : employeesInProject) {
 
                 // explicitly declare each parameter to avoid confusion
-                EmployeeIdAndDates firstEmployee = employeeIdAndDates;
+                EmpIdAndDates firstEmployee = empIdAndDates;
                 int firstEmployeeIndex = employeesInProject.indexOf(firstEmployee);
                 int firstEmployeeId = firstEmployee.getEmployeeId();
                 long firstEmployeeStartTime = firstEmployee.getDateFrom().getTime();
@@ -33,7 +33,7 @@ public class Collaboration {
 
                     // explicitly declare each parameter to avoid confusion
                     int secondEmployeeIndex = i;
-                    EmployeeIdAndDates secondEmployee = employeesInProject.get(secondEmployeeIndex);
+                    EmpIdAndDates secondEmployee = employeesInProject.get(secondEmployeeIndex);
                     Integer secondEmployeeId = secondEmployee.getEmployeeId();
                     long secondEmployeeStartTime = secondEmployee.getDateFrom().getTime();
                     long secondEmployeeEndTime = secondEmployee.getDateTo().getTime();
