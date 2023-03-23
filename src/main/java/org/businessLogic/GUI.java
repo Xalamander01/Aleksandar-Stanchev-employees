@@ -22,7 +22,7 @@ public class GUI implements ActionListener {
         /*
          * create a new window titled "Collaborations UI"
          * add a button and attach an action listener to it
-         * add a label just after the button, which will show the path to the chosen file
+         * add a label that will show the path to the chosen file
          */
 
         GUI gui = new GUI();
@@ -45,7 +45,8 @@ public class GUI implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         /*
-         * when triggered, if the "Open CSV" button is pressed, open a file chooser window
+         * when triggered, if the "Open CSV" button is pressed (we don't have any other buttons),
+         * open a file chooser window
          * if the user has successfully selected a file
          * update the label, populate the table model and render it in the window
          */
@@ -66,7 +67,8 @@ public class GUI implements ActionListener {
     }
 
     /*
-     * Create an abstract table model to hold the data which will be displayed in the table
+     * Create an abstract table model to hold the data which will be displayed in our table
+     * implement each method of the AbstractTableModel method
      */
     static class FileTableModel extends AbstractTableModel {
         protected String filePath;
@@ -76,7 +78,7 @@ public class GUI implements ActionListener {
 
         public FileTableModel(String filePath) {
             this.filePath = filePath;
-            Map<Integer, List<EmployeeIdAndDates>> projectAndEmployees = EmployeeIdAndDates.parseCSVFile(filePath);
+            Map<Integer, List<EmpIdAndDates>> projectAndEmployees = EmpIdAndDates.parseCSVFile(filePath);
             this.collaborationsMap = Collaboration.getCollaborationsMap(projectAndEmployees);
         }
 
